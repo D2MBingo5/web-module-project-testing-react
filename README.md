@@ -29,7 +29,7 @@ Get the project fired up and start using it as a user would. Try to go through t
 
 ### Task 2: Project Requirements
 #### The Episode Component
-> *This component displays a single episode worth of data. To test it, let's try our some different varieties on what we should pass into our component's props.*
+> *This component displays a single episode worth of data. To test it, let's try out some different varieties on what we should pass into our component's props.*
 
 * [ ] Complete a test that shows the Episode component renders. Pass in the provided example episode data as a test prop.
 * [ ] Modify the test data to display a specific summary statement. Complete a test that shows that the summary value passed in to the Episode component displays as expected. **Use at least then 3 different types of expect statements to test the the existence of the summary value.**
