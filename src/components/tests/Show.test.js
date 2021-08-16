@@ -36,6 +36,8 @@ test('renders same number of options seasons are passed in', ()=>{
 });
 
 test('handleSelect is called when an season is selected', () => {
+    // INCOMPLETE !!!
+    
     const fakeSeasonSelect = jest.fn()
 
     render(<Show show={testShow} selectedSeason={'none'} handleSelect={fakeSeasonSelect}/>)
