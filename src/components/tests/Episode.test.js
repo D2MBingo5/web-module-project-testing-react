@@ -3,29 +3,47 @@ import { render, screen } from '@testing-library/react';
 import Episode from './../Episode';
 
 const testEpisode = {
-    id:1,
-    name: "",
+    id: 1,
+    name: "Test Episode",
     image: "http://static.tvmaze.com/uploads/images/medium_landscape/67/168918.jpg",
     season: 1,
     number: 1,
-    summary: "",
+    summary: "In this episode, the gang lorem ipsum",
     runtime: 1
 }
 
 const testEpisodeWithoutImage = {
-    //Add in approprate test data structure here.
+    //Add in appropriate test data structure here.
+    id: 2,
+    name: "Test Episode - No Image",
+    image: null,
+    season: 1,
+    number: 1,
+    summary: "In this episode, the gang lorem ipsum's again",
+    runtime: 1
 }
 
 test("renders without error", () => {
-
+    render(<Episode episode={testEpisode}/>)
 });
 
-test("renders the summury test passed as prop", ()=>{
-    
+test("renders the summary test passed as prop", ()=>{
+    render(<Episode episode={testEpisode}/>)
+
+    const summary = screen.queryByText(/In this episode, the gang lorem ipsum/i)
+
+    expect(summary).toBeInTheDocument()
+    expect(summary).toBeTruthy()
+    expect(summary).toHaveTextContent(/In this episode, the gang lorem ipsum/i)
 });
 
 test("renders default image when image is not defined", ()=>{
-    
+    render(<Episode episode={testEpisodeWithoutImage} />)
+
+    const imgAlt = screen.getByAltText('./stranger_things.png')
+
+    expect(imgAlt.src).toContain('/stranger_things.png') // for good measure
+    expect(imgAlt.alt).toContain('./stranger_things.png')
 })
 
 //Tasks
