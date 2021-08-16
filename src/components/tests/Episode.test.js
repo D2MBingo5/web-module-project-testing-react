@@ -3,8 +3,8 @@ import { render, screen } from '@testing-library/react';
 import Episode from './../Episode';
 
 const testEpisode = {
-    id:1,
-    name: "",
+    id: 1,
+    name: "Test Episode",
     image: "http://static.tvmaze.com/uploads/images/medium_landscape/67/168918.jpg",
     season: 1,
     number: 1,
@@ -17,11 +17,17 @@ const testEpisodeWithoutImage = {
 }
 
 test("renders without error", () => {
-    render(<Episode ep={testEpisode}/>)
+    render(<Episode episode={testEpisode}/>)
 });
 
-test("renders the summury test passed as prop", ()=>{
-    
+test("renders the summary test passed as prop", ()=>{
+    // render(<Episode ep={testEpisode}/>)
+
+    // const summary = screen.queryByText(/In this episode, the gang lorem ipsum/i)
+
+    // expect(summary).toBeInTheDocument()
+    // expect(summary).toBeTruthy()
+    // expect(summary).toHaveTextContent(/In this episode, the gang lorem ipsum/i)
 });
 
 test("renders default image when image is not defined", ()=>{
