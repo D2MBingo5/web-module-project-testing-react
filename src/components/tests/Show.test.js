@@ -40,10 +40,14 @@ test('handleSelect is called when an season is selected', () => {
 
     render(<Show show={testShow} selectedSeason={'none'} handleSelect={fakeSeasonSelect}/>)
     
-    const selector = screen.queryByRole('select')
-    console.log(selector)
+    const option = screen.queryAllByTestId('season-option')
 
-    // userEvent.click(selector)
+    userEvent.click(option[1])
+
+    // does handleSelect fire?
+    console.log(fakeSeasonSelect.mock.results)
+    expect(fakeSeasonSelect).toBeCalled()
+    expect(fakeSeasonSelect).toBeCalledTimes(1)
 });
 
 test('component renders when no seasons are selected and when rerenders with a season passed in', () => {
