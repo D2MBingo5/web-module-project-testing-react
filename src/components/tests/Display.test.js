@@ -3,8 +3,12 @@ import { render, screen } from '@testing-library/react'
 import Display from '../Display'
 import userEvent from '@testing-library/user-event'
 
+import { fetchShow } from '../../api/fetchShow'
+jest.mock('../../api/fetchShow')
 
-
+test('display renders without errors', () => {
+    render(<Display/>)
+})
 
 ///Tasks:
 //1. Add in nessisary imports and values to establish the testing suite.
