@@ -14,6 +14,13 @@ const testEpisode = {
 
 const testEpisodeWithoutImage = {
     //Add in appropriate test data structure here.
+    id: 2,
+    name: "Test Episode - No Image",
+    image: null,
+    season: 1,
+    number: 1,
+    summary: "In this episode, the gang lorem ipsum's again",
+    runtime: 1
 }
 
 test("renders without error", () => {
@@ -31,7 +38,12 @@ test("renders the summary test passed as prop", ()=>{
 });
 
 test("renders default image when image is not defined", ()=>{
-    
+    render(<Episode episode={testEpisodeWithoutImage} />)
+
+    const imgAlt = screen.getByAltText('./stranger_things.png')
+
+    expect(imgAlt.src).toContain('/stranger_things.png') // for good measure
+    expect(imgAlt.alt).toContain('./stranger_things.png')
 })
 
 //Tasks
